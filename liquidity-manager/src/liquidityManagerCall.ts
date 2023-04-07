@@ -1,5 +1,5 @@
 require('dotenv').config();
-import { tokenConfig, createPosition, Network, removeLiquidityAndBurn, getPositionDetails } from './300k-utils';
+import { tokenConfig, createPosition, Network, removeLiquidityAndBurn, getPositionDetails } from './utils/300k-utils';
 
 async function testAddLiquidity() {
   const network = Network.celo;
