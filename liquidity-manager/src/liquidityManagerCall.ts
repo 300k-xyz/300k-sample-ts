@@ -112,4 +112,4 @@ export async function testGetErc20Balance() {
   console.log(`res`, res.data);
 }
 
-testGetErc20Balance().catch((e) => console.error(e));
+// testGetErc20Balance().catch((e) => console.error(e));
