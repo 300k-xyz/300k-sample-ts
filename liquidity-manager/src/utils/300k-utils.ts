@@ -1,7 +1,7 @@
 import { create300kSignature } from '@300k/ts-sdk';
 import axios from 'axios';
 export const BASE_URL_300K_API = process.env.TK_BASE_URL || `https://api.300k.xyz`;
-export declare enum Network {
+export enum Network {
   'ethereum' = 'ethereum',
   'arbitrum' = 'arbitrum',
   'polygon' = 'polygon',
@@ -164,5 +164,31 @@ export async function removeLiquidityAndBurn({
     timeout: 120 * 1000,
     headers,
   });
+  return res;
+}
+
+export async function getErc20Balance({
+  network,
+  query,
+  apiKey,
+  apiSecret,
+}: {
+  apiKey: string;
+  apiSecret: string;
+  network: Network;
+  query: {
+    walletAddress: string;
+    erc20TokenAddress: string;
+  };
+}) {
+  const ts = Date.now();
+  const path = `/api/${network}/v1/get-balance`;
+  const url = `${BASE_URL_300K_API}${path}`;
+  const headers = {
+    'X-APIKEY': apiKey,
+    'X-TS': ts,
+    'X-SIGNATURE': create300kSignature({ ts, method: 'GET', path, apiSecret, postData: {} }),
+  };
+  const res = await axios.get(url, { params: query, headers });
   return res;
 }

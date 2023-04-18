@@ -1,5 +1,12 @@
 require('dotenv').config();
-import { tokenConfig, createPosition, Network, removeLiquidityAndBurn, getPositionDetails } from './utils/300k-utils';
+import {
+  tokenConfig,
+  createPosition,
+  Network,
+  removeLiquidityAndBurn,
+  getPositionDetails,
+  getErc20Balance,
+} from './utils/300k-utils';
 
 async function testAddLiquidity() {
   const network = Network.celo;
@@ -90,3 +97,19 @@ async function testRemoveLiquidity() {
   }
 }
 // testRemoveLiquidity();
+
+export async function testGetErc20Balance() {
+  const network = Network.celo;
+  const res = await getErc20Balance({
+    network,
+    query: {
+      walletAddress: '0x6453cD5b57576548556e872029dD86e210016965',
+      erc20TokenAddress: '0x471ece3750da237f93b8e339c536989b8978a438', // CELO
+    },
+    apiKey: process.env.apiKey!,
+    apiSecret: process.env.apiSecret!,
+  });
+  console.log(`res`, res.data);
+}
+
+testGetErc20Balance().catch((e) => console.error(e));
