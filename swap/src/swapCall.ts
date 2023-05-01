@@ -50,11 +50,13 @@ async function testBuy() {
     });
     console.log(`swap buy res`, res);
   } catch (e) {
-    console.error(e);
+    const responseBody = e && (e as any).response?.data;
+    const status = e && (e as any).response?.status;
+    console.log(`error status=${status} responseBody`, responseBody);
   }
 }
 
-// testBuy();
+testBuy();
 
 async function testSell() {
   const network = Network.celo;
@@ -108,7 +110,9 @@ async function testSell() {
     });
     console.log(`swap sell res`, res);
   } catch (e) {
-    console.error(e);
+    const responseBody = e && (e as any).response?.data;
+    const status = e && (e as any).response?.status;
+    console.log(`error status=${status} responseBody`, responseBody);
   }
 }
 
