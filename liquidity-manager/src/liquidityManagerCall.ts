@@ -1,12 +1,6 @@
 require('dotenv').config();
-import {
-  tokenConfig,
-  createPosition,
-  Network,
-  removeLiquidityAndBurn,
-  getPositionDetails,
-  getErc20Balance,
-} from './utils/300k-utils';
+import { createPosition, Network, removeLiquidityAndBurn, getPositionDetails, getErc20Balance } from '@300k/ts-sdk';
+import { tokenConfig } from './utils/300k-utils';
 
 async function testAddLiquidity() {
   const network = Network.celo;
@@ -31,7 +25,7 @@ async function testAddLiquidity() {
       apiKey: process.env.apiKey!,
       apiSecret: process.env.apiSecret!,
     });
-    console.log(`res`, res.data);
+    console.log(`res`, res);
   } catch (e) {
     console.error(e);
   }
@@ -56,7 +50,7 @@ async function testRemoveLiquidity() {
       apiSecret: process.env.apiSecret!,
     });
 
-    console.log(`position detail`, positionRes.data);
+    console.log(`position detail`, positionRes);
     /* response:
     * [
   {
@@ -109,7 +103,7 @@ export async function testGetErc20Balance() {
     apiKey: process.env.apiKey!,
     apiSecret: process.env.apiSecret!,
   });
-  console.log(`res`, res.data);
+  console.log(`res`, res);
 }
 
 // testGetErc20Balance().catch((e) => console.error(e));
