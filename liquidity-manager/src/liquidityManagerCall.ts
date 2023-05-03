@@ -90,7 +90,7 @@ async function testRemoveLiquidity() {
     console.error(e);
   }
 }
-// testRemoveLiquidity();
+testRemoveLiquidity();
 
 export async function testGetErc20Balance() {
   const network = Network.celo;
