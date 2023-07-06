@@ -56,7 +56,7 @@ async function testBuy() {
   }
 }
 
-testBuy();
+// testBuy();
 
 async function testSell() {
   const network = Network.celo;
