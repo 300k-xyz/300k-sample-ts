@@ -1,5 +1,6 @@
 require('dotenv').config();
-import { Network, CreateOrderParams, getOrderBook, createOrder } from '@300k/ts-sdk';
+
+import { Network, CreateOrderParams, getOrderBook, createOrder, getQuote } from '@300k/ts-sdk';
 
 async function testBuy() {
   const network = Network.celo;
@@ -117,3 +118,22 @@ async function testSell() {
 }
 
 // testSell();
+
+async function testGetQuote() {
+  const network = Network.ethereum;
+  console.log(`getQuote started`);
+  const res = await getQuote({
+    network,
+    query: {
+      tokenInAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      tokenOutAddress: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+      amount: '1000', // 1000 USDC
+    },
+    apiKey: process.env.apiKey!,
+    apiSecret: process.env.apiSecret!,
+  });
+  console.log(`res`, JSON.stringify(res));
+}
+// testGetQuote();
+
+// node dist/swapCall.js

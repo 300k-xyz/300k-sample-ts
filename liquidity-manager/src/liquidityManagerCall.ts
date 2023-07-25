@@ -118,6 +118,6 @@ export async function getPositionDetailTest() {
   });
   console.log(`positionRes`, positionRes)
 }
-getPositionDetailTest();
+// getPositionDetailTest();
 
 // node dist/liquidityManagerCall.js
