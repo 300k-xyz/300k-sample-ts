@@ -1,5 +1,5 @@
 require('dotenv').config();
-import { createPosition, Network, removeLiquidityAndBurn, getPositionDetails, getErc20Balance } from '@300k/ts-sdk';
+import { createPosition, Network, removeLiquidityAndBurn, getPositionDetails, getPositionDetail, getErc20Balance } from '@300k/ts-sdk';
 import { tokenConfig } from './utils/300k-utils';
 
 async function testAddLiquidity() {
@@ -107,3 +107,17 @@ export async function testGetErc20Balance() {
 }
 
 // testGetErc20Balance().catch((e) => console.error(e));
+
+export async function getPositionDetailTest() {
+  const positionRes = await getPositionDetail({
+    network: Network.arbitrum,
+    tokenId: 1234,
+    apiKey: process.env.apiKey!,
+    apiSecret: process.env.apiSecret!,
+    withUnclaimedFees: true,
+  });
+  console.log(`positionRes`, positionRes)
+}
+getPositionDetailTest();
+
+// node dist/liquidityManagerCall.js

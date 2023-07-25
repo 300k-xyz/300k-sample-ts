@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@300k/ts-sdk@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@300k/ts-sdk/-/ts-sdk-1.0.10.tgz#cfb73457499291e98255d1e0cbc027bad86af486"
-  integrity sha512-qKbClL/4bcreTuZnw2cj/SIkOqSMMtAS5Ys6zFz/cKY2ivjH9VgDRkf6gQV6d6D3U7n3qgMKXCXmh91lJKIY1Q==
+"@300k/ts-sdk@1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@300k/ts-sdk/-/ts-sdk-1.0.13.tgz#b65ab3037152f4479b3a32a6201dd84b5e6fd5bb"
+  integrity sha512-Kbm2aSQTVwiHoC+Inf+iLGBZjfEAlg7GmRdXDKRavkApGcwrY92rjcNa6icDfqcLSAKUxGMhhjUBvdUexRygHA==
   dependencies:
     axios "^1.4.0"
 
